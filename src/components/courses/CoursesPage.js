@@ -7,12 +7,17 @@ import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
 class CoursesPage extends React.Component {
   componentDidMount() {
-    this.props.actions.loadCourses().catch((error) => {
-      alert("loading courses failed" + error);
-    });
-    this.props.actions.loadAuthors().catch((error) => {
-      alert("loading authors failed" + error);
-    });
+    this.props.courses.length === 0
+      ? this.props.actions.loadCourses().catch((error) => {
+          alert("loading courses failed" + error);
+        })
+      : "";
+
+    this.props.authors.length === 0
+      ? this.props.actions.loadAuthors().catch((error) => {
+          alert("loading authors failed" + error);
+        })
+      : "";
   }
   render() {
     return (
@@ -26,6 +31,7 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   actions: PropTypes.object.isRequired,
   courses: PropTypes.func.isRequired,
+  authors: PropTypes.func.isRequired,
 };
 function mapStateToProps(state) {
   return {
