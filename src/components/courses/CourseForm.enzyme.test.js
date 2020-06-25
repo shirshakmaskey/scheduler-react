@@ -1,8 +1,6 @@
 import React from "react";
 import CourseForm from "./CourseForm";
-import { shallow, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
-configure({ adapter: new Adapter() });
+import { shallow } from "enzyme";
 
 function renderCourseForm(args) {
   const defaultProps = {

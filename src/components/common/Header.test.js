@@ -1,9 +1,7 @@
 import React from "react";
 import Header from "./Header";
-import { mount, shallow, configure } from "enzyme";
-import Adapter from "enzyme-adapter-react-16";
+import { mount, shallow } from "enzyme";
 import { MemoryRouter } from "react-router-dom";
-configure({ adapter: new Adapter() });
 
 it("contains 3 Navlinks via shallow", () => {
   const NumLinks = shallow(<Header />).find("NavLink").length;
